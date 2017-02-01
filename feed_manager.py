@@ -1,11 +1,15 @@
+import csv
 import simplejson as json
+
+def _remove_single_quotes(string):
+    return string.replace("'", "")
 
 class Feed_Manager():
     def __init__(self):
         self.current_feed_data = None
         self.feed_headers = [
-            {'field': 'wynit_pn', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'manufacturer_pn', 'type': 'text', 'label': '', 'func_apply': None},
+            {'field': 'wynit_pn', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes, 'maps_to_cms_field': None},
+            {'field': 'manufacturer_pn', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes},
             {'field': 'category_descript', 'type': 'text', 'label': '', 'func_apply': None},
             {'field': 'vendor_name', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'brief_part_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
@@ -14,12 +18,12 @@ class Feed_Manager():
             {'field': 'NY_qty_avail', 'type': 'integer', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'TN_qty_avail', 'type': 'integer', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'seller_price', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'upc_code', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'upc_code', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes, 'maps_to_cms_field': None},
             {'field': 'msrp', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'weight_lb', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'length', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'width', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'height', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'weight_lb', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'length', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'width', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'height', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'MAP', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'sub_category_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'marketing_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
@@ -28,7 +32,8 @@ class Feed_Manager():
         ]
 
     def get_feed_data_from_text(self, path):
-        pass
+        with open(path, 'r') as f:
+            csv_data = csv.reader(f, delimiter = '\t')
 
     def parse_current_feed(self):
         pass
