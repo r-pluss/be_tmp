@@ -1,0 +1,21 @@
+- Our (WYNIT) Part Number - this will be enclosed in single quotes so that leading zero’s do not get dropped off the WYNIT part numbers. (The quotes will only apply to tab delimited files.)
+- Manufacturer Part Number - this will be enclosed in single quotes so that leading zero’s do not get dropped off Manf. part numbers. (The quotes will only apply to tab delimited files.)
+- Category Description 
+- Vendor Name 
+- Brief Part Description 
+- Quantity Available 
+- CA Quantity Available 
+- NY Quantity Available 
+- TN Quantity Available 
+- Your cost 
+- UPC Code (If code does not exist, it will say NO-UPC.) - this will be enclosed in single quotes so that leading zero’s do not get dropped off UPC numbers. (The quotes will only apply to tab delimited files.)
+- MSRP 
+- Weights ( All weights are measured in lbs. All missing weights will show as a 0.)
+- Length 
+- Width 
+- Height
+- MAP
+- Sub Category Description
+- Marketing Descriptions
+- Product Thumbnail
+- Product Full Image
