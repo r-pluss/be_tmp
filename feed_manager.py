@@ -7,23 +7,59 @@ def _remove_single_quotes(string):
 class Feed_Manager():
     def __init__(self):
         self.current_feed_data = None
+        self.cms_headers = [
+            "Product ID","Product Type",
+            "Code",
+            "Name",
+            "Brand",
+            "Description",
+            "Cost Price",
+            "Retail Price",
+            "Sale Price",
+            "Calculated Price",
+            "Fixed Shipping Price",
+            "Free Shipping",
+            "Warranty",
+            "Weight",
+            "Width",
+            "Height",
+            "Depth",
+            "Allow Purchases",
+            "Product Visible",
+            "Product Availability",
+            "Product Inventoried",
+            "Stock Level",
+            "Low Stock Level",
+            "Date Added",
+            "Date Modified",
+            "Category Details",
+            "Images",
+            "Page Title",
+            "META Keywords",
+            "META Description",
+            "Product Condition",
+            "Product URL",
+            "Redirect Old URL?",
+            "Product Tax Code",
+            "Product Custom Fields"
+        ]
         self.feed_headers = [
             {'field': 'wynit_pn', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes, 'maps_to_cms_field': None},
-            {'field': 'manufacturer_pn', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes},
-            {'field': 'category_descript', 'type': 'text', 'label': '', 'func_apply': None},
-            {'field': 'vendor_name', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'manufacturer_pn', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes, 'maps_to_cms_field': None},
+            {'field': 'category_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'vendor_name', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': "Brand"},
             {'field': 'brief_part_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'quantity_available', 'type': 'integer', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'CA_qty_avail', 'type': 'integer', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'NY_qty_avail', 'type': 'integer', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'TN_qty_avail', 'type': 'integer', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'seller_price', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'seller_price', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': "Cost Price"},
             {'field': 'upc_code', 'type': 'text', 'label': '', 'func_apply': _remove_single_quotes, 'maps_to_cms_field': None},
-            {'field': 'msrp', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'weight_lb', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'length', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'width', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
-            {'field': 'height', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
+            {'field': 'msrp', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': "Retail Price"},
+            {'field': 'weight_lb', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': 'Weight'},
+            {'field': 'length', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': 'Depth'},
+            {'field': 'width', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': 'Width'},
+            {'field': 'height', 'type': 'decimal', 'label': '', 'func_apply': None, 'maps_to_cms_field': 'Height'},
             {'field': 'MAP', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'sub_category_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
             {'field': 'marketing_descript', 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None},
@@ -31,12 +67,55 @@ class Feed_Manager():
             {'field': 'product_full_image' 'type': 'text', 'label': '', 'func_apply': None, 'maps_to_cms_field': None}
         ]
 
+
+
+
     def get_feed_data_from_text(self, path):
         with open(path, 'r') as f:
             csv_data = csv.reader(f, delimiter = '\t')
 
+
+
+
+
     def parse_current_feed(self):
         pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @staticmethod
     def __sample():
         return [
